@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dojo Survey</h1>
+        <form action="/process" method="post">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Dojo Location:</label>
+                <select class="form-control" name="location" required>
+                    <option value="Mountain View">Mountain View</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="New York">New York</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Favorite Language:</label>
+                <select class="form-control" name="language" required>
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments (optional):</label>
+                <textarea class="form-control" name="comments" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label><br>
+                <input type="radio" name="gender" value="Male" required> Male<br>
+                <input type="radio" name="gender" value="Female"> Female<br>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
