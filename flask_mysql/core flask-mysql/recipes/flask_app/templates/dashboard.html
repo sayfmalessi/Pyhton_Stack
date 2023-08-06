@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+</head>
+<body>
+    <div class="d_flex justify-content-between m-5">
+        <h1>welcome {{user.first_name}}</h1>
+        <div>
+            <a href="/recipes/new" class="btn btn-secondary"> + Create</a>
+            <a href="/logout" class="btn btn-danger">logout</a>
+        </div>
+    </div>
+    <div class="m-5">
+        <h4>ALL posted recipes</h4>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>under</th>
+                <th>Posted By</th>
+                <th>actions</th>
+            </tr>
+            {% for recip in recipes %}
+            <tr>
+                <td>{{ recip.name }}</td>
+                <td>{%if recip.under==1 %}
+                    YES
+                    {%else%}
+                    NO
+                    {%endif%}
+                </td>
+                <td>{{ recip.owner }}</td>
+                <td>
+                <a href="/recipes/{{recip.user_id}}">show</a>
+                    {%if recip.user_id == user.id%}
+                        <a href="/recipes/{{recip.id}}/edit">edit</a>
+                        <a href="/recipes/{{recip.id}}/destroy">cancel</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </div>
+    
+</body>
+</html>

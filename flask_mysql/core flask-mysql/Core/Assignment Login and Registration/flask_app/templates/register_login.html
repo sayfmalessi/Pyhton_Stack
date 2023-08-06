@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+
+<body>
+
+    <h3>REGISTER</h1>
+        <hr>
+        {% with messages = get_flashed_messages(category_filter=["reg"]) %} <!-- declare a variable called messages -->
+        {% if messages %} <!-- check if there are any messages -->
+        {% for message in messages %} <!-- loop through the messages -->
+        <p style="color:red">{{message}}</p> <!-- display each message in a paragraph tag -->
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="/users/register" method="post">
+
+            <div>
+                first_name:
+                <input name="first_name">
+
+            </div>
+            <div>
+                last_name:
+                <input name="last_name">
+            </div>
+            <div>
+                email:
+                <input name="email">
+            </div>
+            <div>
+                password:
+                <input name="password" type="password">
+            </div>
+            <div>
+                confirm_password:
+                <input name="confirm_password" type="password">
+            </div>
+            <button>Register</button>
+        </form>
+
+        <hr>
+        <h3>LOGIN</h3>
+        {% with messages = get_flashed_messages(category_filter=["log"]) %} <!-- declare a variable called messages -->
+        {% if messages %} <!-- check if there are any messages -->
+        {% for message in messages %} <!-- loop through the messages -->
+        <p style="color:red">{{message}}</p> <!-- display each message in a paragraph tag -->
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="/users/login" , method="post">
+            <div>
+                email:
+                <input name="email">
+            </div>
+            <div>
+                password:
+                <input name="password">
+            </div>
+
+            <button>login</button>
+        </form>
+</body>
+
+</html>
